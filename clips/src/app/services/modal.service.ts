@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { elementAt } from 'rxjs';
 
 interface IModal{
   id : string;
@@ -20,6 +21,12 @@ export class ModalService {
     })
     
 
+  }
+
+  unragister(id:string){
+    this.modals =  this.modals.filter(
+      Element => Element.id !==id
+    )
   }
 
   isModalOpen(id:string):boolean{
